@@ -10,15 +10,16 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import base.DriverSetup;
 import base.Locators;
 
-public class SelectButtonSauce extends DriverSetup {
+public class SelectButtonSauce extends DriverSetup  {
 
-    public SoftAssert softassert = new SoftAssert();
+    SoftAssert softassert = new SoftAssert();
     private Locators locators = new Locators();
 
     @Test

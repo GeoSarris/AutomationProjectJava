@@ -29,7 +29,7 @@ public class Listeners extends Screenshot implements ITestListener{
             e.printStackTrace();
         }
         System.setProperty("org.uncommons.reportng.escape-output","false");
-        Reporter.log("<a href=\"C:\\Users\\motzos\\Desktop\\JavaTesting\\automationtesting\\screenshot\\"+screenshotFileName+".png\">Failure screeshot</a>");
+        Reporter.log("<a href=\""+System.getProperty("user.dir")+"\\screenshot\\"+screenshotFileName+".png\">Failure screeshot</a>");
     }
 
     public void onTestSkipped(ITestResult result){

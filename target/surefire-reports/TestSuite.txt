@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 8, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 14.209 s <<< FAILURE! - in TestSuite
-loginTest(testcases.LoginSauce)  Time elapsed: 0.424 s  <<< FAILURE!
+Tests run: 9, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 16.659 s <<< FAILURE! - in TestSuite
+loginTest(testcases.LoginSauce)  Time elapsed: 0.434 s  <<< FAILURE!
 java.lang.AssertionError: Login attempt with username: locked_out_user and password: secret_sauce failed. expected [https://www.saucedemo.com/inventory.html] but found [https://www.saucedemo.com/]
 	at testcases.LoginSauce.loginTest(LoginSauce.java:36)
 

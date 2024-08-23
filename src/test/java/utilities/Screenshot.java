@@ -14,6 +14,7 @@ public class Screenshot extends DriverSetup{
     
     public static String screenshotFileName;
 
+    //Takes a screenshot and creates a file with current date as name.
     public void getScreenshot() throws IOException{
         Date currentDate = new Date();
         screenshotFileName = currentDate.toString().replace(" ", ".").replace(":","-");

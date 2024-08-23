@@ -6,15 +6,10 @@ import java.time.Duration;
 import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
-//import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-// import org.openqa.selenium.interactions.Actions;
-// import org.openqa.selenium.support.ui.ExpectedConditions;
-// import org.openqa.selenium.support.ui.Select;
-// import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -26,8 +21,9 @@ public class DriverSetup {
     public static Properties prop = new Properties();
     public static FileReader freader;
 
+    //Create driver for selected browser from config.properties
     @BeforeMethod
-    public void setUp() throws IOException {
+    protected void setUp() throws IOException {
         FileReader fReader = new FileReader(
                 System.getProperty("user.dir") + "\\src\\test\\Resources\\ConfigFiles\\config.properties");
         prop.load(fReader);
@@ -59,42 +55,12 @@ public class DriverSetup {
         }
     };
 
+    //Tear down driver.
     @AfterMethod
-    public void tearDown() {
+    protected void tearDown() {
         if (driver != null) {
             driver.quit();
         }
     };
 
-
-    //Reusable methods
-
-    // public void clickElement (WebElement element, long waitTimeInSeconds){
-    //     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(waitTimeInSeconds));
-    //     wait.until(ExpectedConditions.elementToBeClickable(element)).click();
-
-    // }
-
-    // public void sendKeysOnElement(WebElement element, String text){
-    //     element.click();
-    //     element.clear();
-    //     element.sendKeys(text);
-    // }
-
-    // public void selectByVisibleText(WebElement element, String text){
-    //     Select select = new Select(element);
-    //     select.selectByVisibleText(text);
-
-    // }
-
-    // public void acceptAlert(WebDriver driver){
-    //     driver.switchTo().alert().accept();
-    // }
-
-    // public void mouseHoverAndClick(WebElement element){
-    //     Actions action = new Actions(driver);
-    //     action.moveToElement(element).click().build().perform();
-    // }
-
-    
 }

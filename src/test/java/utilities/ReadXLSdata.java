@@ -15,10 +15,7 @@ import org.testng.annotations.DataProvider;
 
 public class ReadXLSdata {
 
-    // public static void main(String [] args) throws EncryptedDocumentException, IOException{
-    //     ReadXLSdata red = new ReadXLSdata();
-    //     red.getData("login");
-    // }
+    //Data provider for
     @DataProvider (name="logindata")
     public String[][] getData(Method m) throws EncryptedDocumentException, IOException{
 
@@ -29,21 +26,22 @@ public class ReadXLSdata {
         Sheet sheetName = wb.getSheet(excelName);
         
         int totalRows = sheetName.getLastRowNum();
-        //System.out.println(totalRows);
+       
         Row rowCells = sheetName.getRow(0); 
 
         int totalCols = rowCells.getLastCellNum();
-        //System.out.println(totalCols);
+
 
         DataFormatter format = new DataFormatter();
         String testData[][]= new String[totalRows][totalCols];
 
+        //Passes the excel data in the testData[][] variable by iterating all rows and cols
         for (int i=1; i<=totalRows;i++){
             for(int j=0;j<totalCols;j++){
                 testData[i-1][j]=format.formatCellValue(sheetName.getRow(i).getCell(j));
-                //System.out.println(testData[i-1][j]);
             }
         }
+
         wb.close();
         fileStream.close();
         return testData;
