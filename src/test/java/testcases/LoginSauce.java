@@ -23,15 +23,6 @@ public class LoginSauce extends DriverSetup{
         String newPageUrl = driver.getCurrentUrl();
         System.out.println(newPageUrl);
 
-
-        // boolean successfulLogin = newPageUrl.equals("https://www.saucedemo.com/inventory.html");
-
-        // softassert.assertEquals(successfulLogin,true);
-        // if(!successfulLogin){
-        //     driver.navigate().to(prop.getProperty("URL"));
-        // }
-        // softassert.assertAll();
-
         try {
             Assert.assertEquals(newPageUrl, "https://www.saucedemo.com/inventory.html", "Login attempt with username: " + username + " and password: " + password + " failed.");
         } catch (AssertionError e) {

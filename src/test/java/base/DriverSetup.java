@@ -33,26 +33,20 @@ public class DriverSetup {
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--disable-search-engine-choice-screen");
             driver = new ChromeDriver(options);
-            driver.get(prop.getProperty("URL"));
-            driver.manage().window().maximize();
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         }
         // Firefox browser
         else if (prop.getProperty("browser").equalsIgnoreCase("firefox")) {
             WebDriverManager.firefoxdriver().setup();
             driver = new FirefoxDriver();
-            driver.get(prop.getProperty("URL"));
-            driver.manage().window().maximize();
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         }
         // Edge browser
         else if (prop.getProperty("browser").equalsIgnoreCase("edge")) {
             WebDriverManager.edgedriver().setup();
             driver = new EdgeDriver();
-            driver.get(prop.getProperty("URL"));
-            driver.manage().window().maximize();
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         }
+        driver.get(prop.getProperty("URL"));
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     };
 
     //Tear down driver.
