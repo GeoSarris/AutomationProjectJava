@@ -9,7 +9,7 @@ import base.DriverSetup;
 import base.Locators;
 import utilities.ReadXLSdata;
 
-public class LoginSauce extends DriverSetup{
+public class LoginSauceTest extends DriverSetup{
 
     public SoftAssert softassert = new SoftAssert();
     private Locators locators = new Locators();
@@ -26,9 +26,7 @@ public class LoginSauce extends DriverSetup{
         try {
             Assert.assertEquals(newPageUrl, "https://www.saucedemo.com/inventory.html", "Login attempt with username: " + username + " and password: " + password + " failed.");
         } catch (AssertionError e) {
-            // If login failed, navigate back to the login page
             driver.navigate().to("https://www.saucedemo.com/");
-            // Throw the assertion error again to mark this particular test case as failed
             throw e;
         }
 

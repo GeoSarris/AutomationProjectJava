@@ -21,7 +21,7 @@ public class DriverSetup {
     public static Properties prop = new Properties();
     public static FileReader freader;
 
-    //Create driver for selected browser from config.properties
+    // Create driver for selected browser from config.properties
     @BeforeMethod
     protected void setUp() throws IOException {
         FileReader fReader = new FileReader(
@@ -46,10 +46,10 @@ public class DriverSetup {
         }
         driver.get(prop.getProperty("URL"));
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(2000));
     };
 
-    //Tear down driver.
+    // Tear down driver.
     @AfterMethod
     protected void tearDown() {
         if (driver != null) {
