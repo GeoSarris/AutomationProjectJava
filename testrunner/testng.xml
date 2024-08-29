@@ -11,8 +11,7 @@
         <packages>
             <package name="testcases">
                 <classes>
-                    <exclude name="testcases.testfactory"/>
-                    <exclude name="testcases.MyFirstTestFactory"/>
+                    <!-- Here you can use <run><include</<exclude> </run> and define groups -->
                 </classes>
             </package>
         </packages>

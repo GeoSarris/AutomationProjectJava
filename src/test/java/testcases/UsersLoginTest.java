@@ -9,7 +9,7 @@ import base.DriverSetup;
 import base.Locators;
 import utilities.ReadXLSdata;
 
-public class LoginSauceTest extends DriverSetup{
+public class UsersLoginTest extends DriverSetup{
 
     public SoftAssert softassert = new SoftAssert();
     private Locators locators = new Locators();

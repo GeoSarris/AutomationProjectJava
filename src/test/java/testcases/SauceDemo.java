@@ -11,6 +11,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -24,24 +25,24 @@ public class SauceDemo extends DriverSetup {
     public void checkItems() throws InterruptedException {
 
         login.login();
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(2000));
         // List<WebElement> elements = driver.findElements(locators.itemsTitle);
         List<WebElement> elements = wait
                 .until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locators.itemsTitle));
 
         // Iterates through all items
         for (int i = 0; i < elements.size(); i++) {
-        elements =
-        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locators.itemsTitle));
-        WebElement element = elements.get(i);
+            elements = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locators.itemsTitle));
+            WebElement element = elements.get(i);
 
-        String itemTitle = element.getText();
-        element.click();
+            String itemTitle = element.getText();
+            element.click();
 
-        String actualText = driver.findElement(locators.itemsTitle).getText();
-        softassert.assertEquals(actualText, itemTitle);
-        driver.navigate().back();
+            String actualText = driver.findElement(locators.itemsTitle).getText();
+            softassert.assertEquals(actualText, itemTitle);
+            driver.navigate().back();
         }
+        softassert.assertAll();
 
     }
 
@@ -54,7 +55,7 @@ public class SauceDemo extends DriverSetup {
         driver.findElement(locators.shoppingCart).click();
 
         List<WebElement> elements = driver.findElements(By.xpath("//div[@data-test='inventory-item-name']"));
-        softassert.assertEquals(elements.size(), 2);
+        Assert.assertEquals(elements.size(), 2);
 
     }
 
@@ -64,11 +65,11 @@ public class SauceDemo extends DriverSetup {
         login.login();
         driver.findElement(By.xpath("//button[@data-test='add-to-cart-sauce-labs-backpack']")).click();
         driver.findElement(By.xpath("//button[@data-test='add-to-cart-sauce-labs-fleece-jacket']")).click();
-        driver.findElement(By.xpath("//button[@data-test='remove-sauce-labs-backpack']")).click();
-        driver.findElement(By.xpath("//button[@data-test='remove-sauce-labs-fleece-jacket']")).click();
+        driver.findElement(locators.removeButtons).click();
+        driver.findElement(locators.removeButtons).click();
+        driver.findElement(locators.shoppingCart).click();
 
         List<WebElement> elements = driver.findElements(By.xpath("//div[@data-test='inventory-item-name']"));
-        softassert.assertEquals(elements.size(), 0);
-
+        Assert.assertEquals(elements.size(), 0);
     }
 }
