@@ -7,13 +7,13 @@
   </listeners>
   <test thread-count="5" name="Automation Tests(failed)" verbose="0">
     <classes>
-      <class name="testcases.LoginSauceTest">
+      <class name="testcases.UsersLoginTest">
         <methods>
           <include name="setUp"/>
           <include name="tearDown"/>
           <include name="loginTest" invocation-numbers="2"/>
         </methods>
-      </class> <!-- testcases.LoginSauceTest -->
+      </class> <!-- testcases.UsersLoginTest -->
     </classes>
   </test> <!-- Automation Tests(failed) -->
 </suite> <!-- Failed suite [Suite] -->
